@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Adicionar Integrante{% endblock %}
+
+{% block content %}
+
+<div class="offset-3 col-9 integrantenew-div">
+    <h2>Adicione o novo Integrante:</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% crispy form %}
+    </form>
+</div>
+{% endblock %}

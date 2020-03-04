@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Editar Integrante{% endblock %}
+
+{% block content %}
+<div class="headerintegranteview">
+    <h2 class="h2integranteview">{{integrante.nome}}</h2>
+    {% if integrante.foto %}
+    <img class="imageintegranteview" src="{{integrante.foto.url}}" width="100"/>
+    {% else %}
+    <img class="imageintegranteview" src="/media/fotos/tbd.png" width="100"/>
+    {% endif %}
+</div>
+<div class="offset-2 col-10 integranteedit-div">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% crispy form %}
+    </form>
+</div>
+{% endblock %}

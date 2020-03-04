@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% block title %}Group Manager{% endblock %}
+
+{% block content %}
+<div class="offset-0 col-11 listaintegrantes-div">
+    <h2>Integrantes</h2>
+    <div class="flex-container">
+        <!-- Configuração da ação do filtro -->
+        <div class="col-5 column filtergrupo-div">
+            <span>Filtrar Grupo:</span>
+            <select name="filtergrupo" id="filtergrupo" class="form-control">
+                <option value="0">Todas</option>
+                {% for grupoitem in listagrupos %}
+                {% if filtergrupoatual == grupoitem.id %}
+                    <option value="{{ grupoitem.id }}" selected>{{ grupoitem.nome }}</option>
+                {% else %}
+                    <option value="{{ grupoitem.id }}">{{ grupoitem.nome }}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <!-- Configuração da ação do filtro Status -->
+        <div class="col-4 filterstatus-div">
+            <span>Filtrar Status:</span>
+            <select name="filterstatus" id="filterstatus" class="form-control">
+                <option value="*">Todos</option>
+                {% if filterstatusatual == 'ATV' %}
+                    <option value="ATV" selected>Ativo</option>
+                {% else %}
+                    <option value="ATV">Ativo</option>
+                {% endif %}
+                {% if filterstatusatual == 'AUS' %}
+                    <option value="AUS" selected>Ausente</option>
+                {% else %}
+                    <option value="AUS">Ausente</option>
+                {% endif %}
+                {% if filterstatusatual == 'DIS' %}
+                    <option value="DIS" selected>Disciplina</option>
+                {% else %}
+                    <option value="DIS">Disciplina</option>
+                {% endif %}
+                {% if filterstatusatual == 'VIS' %}
+                    <option value="VIS" selected>Visitante</option>
+                {% else %}
+                    <option value="VIS">Visitante</option>
+                {% endif %}
+                {% if filterstatusatual == 'INT' %}
+                    <option value="INT" selected>Interessado</option>
+                {% else %}
+                    <option value="INT">Interessado</option>
+                {% endif %}
+            </select>
+        </div>
+        <!-- Configuração da ação do botão search integrante -->
+        <div class="col-4 searchintegrante-div">
+            <form method="GET" id="searchintegrante-form">
+                <input class="form-control" type="text" id="searchintegrante" name="searchintegrante"
+                       placeholder="Digite o nome para buscar..."
+                       value="{{ request.GET.searchintegrante }}"> <!-- value aqui apresenta o que o usuário digitou para não apagar depois que ele digitar enter ou clicar na lupinha -->
+                <i class="fas fa-search bot-search-integrante" id="searchintegrante-btn"></i>
+            </form>
+        </div>
+        <!-- Configuração do botão criar -->
+        <a class="fas fa-plus btn btn-primary" id="btnintegrantenew" href="/integrantenew">&nbsp Criar</a>
+    </div>
+
+    {% if messages %}
+    {% for message in messages %}
+    <ul class="messagelist">
+        <li {% if message.tags %} class="alert alert-{{ message.tags }} alert-dismissible" {% endif %} > <strong>{{message}}</strong> </li>
+    </ul>
+    {% endfor %}
+    {% endif %}
+
+    <div class="container lista-integrantes">
+        <table class="table table-integrantes">
+            <thead>
+            <tr>
+                <th>Foto</th>
+                <th>Nome</th>
+                <th>Grupo</th>
+                <th>Cidade</th>
+                <th>UF</th>
+                <th>Situação</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for integrante in listaintegrantes %}
+            <tr>
+                <td>
+                    <div class="circle">
+                        {% if integrante.foto %}
+                            <img src="{{integrante.foto.url}}"/>
+                        {% else %}
+                            <img src="/media/fotos/tbd.png"/>
+                        {% endif %}
+                    </div>
+                </td>
+                <td><span><a href="/integrante/{{integrante.id}}">{{integrante.nome}}</a></span></td>
+                <td>{{integrante.grupo}}</td>
+                <td>{{integrante.cidade}}</td>
+                <td>{{integrante.uf}}</td>
+                <td>{{integrante.get_status_display}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+</html>

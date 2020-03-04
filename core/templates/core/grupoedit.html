@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Editar Grupo{% endblock %}
+
+{% block content %}
+<div class="offset-3 col-8 grupoedit-div">
+    <h2>Edite o Grupo:</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {% crispy form %}
+    </form>
+</div>
+{% endblock %}

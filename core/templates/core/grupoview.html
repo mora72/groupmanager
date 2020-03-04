@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Grupo{% endblock %}
+
+{% block content %}
+<div class="offset-3 col-8 grupoview-div">
+    <h2>{{grupo.nome}}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {% crispy form %}
+    </form>
+    <a id="btnvoltar" href="/">
+        <button type="button" class="btn btn-info">Voltar</button>
+    </a>
+    <a id="btndelete" href="delete/{{grupo.id}}">
+        <button type="button" class="btn btn-danger">Apagar</button>
+    </a>
+    <a id="btngrupoedit" href="edit/{{grupo.id}}">
+        <button type="button" class="btn btn-primary">Atualizar</button>
+    </a>
+</div>
+{% endblock %}

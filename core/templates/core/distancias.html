@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+
+{% block title %}Grupos Próximos{% endblock %}
+
+{% block content %}
+<div class="offset-3 col-5 distancias-div">
+    <h2>Busca Grupos mais Próximos</h2>
+    <!-- Configuração da ação do botão search -->
+    <div class="col-9 searchcidadeinteresse-div">
+        <form method="GET" id="searchcidadeinteresse-form">
+            <input class="form-control" type="text" id="searchcidadeinteresse" name="searchcidadeinteresse" placeholder="Digite o nome da cidade de interesse..." value="{{ request.GET.searchcidadeinteresse }}"> <!-- value aqui apresenta o que o usuário digitou para não apagar depois que ele digitar enter ou clicar na lupinha -->
+            <i class="fas fa-search bot-search-cidadeinteresse" id="search-btn-cidadeinteresse"></i>
+        </form>
+    </div>
+    <div class="container lista-distancias">
+        <table class="table">   <!--  table-bordered table-sm  -->
+            <thead>
+            <tr>
+                <th>Nome do Grupo</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>Distância</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for dist in listadistancias %}
+            <tr>
+                <td>{{ dist.grupo }}</td>
+                <td>{{ dist.cidade }}</td>
+                <td>{{ dist.uf }}</td>
+                <td>{{ dist.dist }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+</html>

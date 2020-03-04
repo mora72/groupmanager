@@ -1,0 +1,299 @@
+/* Para ocupar a tela inteira */
+.container-fluid {
+    padding: 0;
+}
+
+.container-fluid .row {
+    margin: 0;
+}
+
+/* Tira asterísco dos campos obrigatórios */
+.asteriskField {
+    display: none;
+}
+
+/* Navbar */
+
+/* coloca border abaixo no navbar, e estabelece margem para o que vem abaixo */
+.navbar  {
+    border-bottom: 1px solid blue;
+    margin-bottom: 25px;
+}
+
+/* centraliza o navbar */
+.navbar-nav {
+    margin-left: 170px;
+}
+/* coloca bold no botão principal (brand) */
+.navbar-brand {
+    font-family: 'Pacifico', cursive;
+    font-size: 27px;
+}
+/* coloca cor e espaçamento das letras nas opções do navbar */
+.navbar-light .navbar-nav a.nav-link {
+    color: blue;
+    letter-spacing: 0px;
+    font-size: 17px;
+    font-weight: bold;
+    margin-left: 55px;
+}
+
+/* Lista Grupos */
+
+.listagrupos-div h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 450px;
+}
+
+.lista-grupos {
+    margin-left: 60px;
+}
+
+/* Lista Integrantes */
+
+.listaintegrantes-div {
+    margin-left: 50px;
+}
+
+.listaintegrantes-div h2 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: 450px;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+}
+
+.circle img {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.table-integrantes td {
+    vertical-align: middle;
+}
+
+/* Grupo New */
+
+.gruponew-div h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 0px;
+    margin-bottom: 30px;
+    padding: 0;
+    color: blue;
+}
+
+/* Grupo Edit */
+
+.grupoedit-div h2 {
+    font-size: 23px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 0px;
+    margin-bottom: 30px;
+    padding: 0;
+    color: blue;
+}
+
+/* Grupo View */
+
+.grupoview-div h2 {
+    font-size: 23px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-left: 0px;
+    margin-bottom: 30px;
+    padding: 0;
+    color: blue;
+}
+
+/* Integrante New */
+
+.integrantenew-div h2 {
+    font-size: 23px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 0px;
+    margin-bottom: 30px;
+    padding: 0;
+    color: blue;
+}
+
+/* Integrante Edit */
+
+.integranteedit-div h2 {
+    font-size: 23px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 0px;
+    margin-bottom: 30px;
+    padding: 0;
+    color: blue;
+}
+
+.integranteedit-div {
+    margin-top: 100px;
+}
+
+/* Integrante View */
+
+.imageintegranteview {
+    position: absolute;
+    top: 80px;
+    left: 750px;
+}
+
+.h2integranteview {
+    position: absolute;
+    font-size: 23px;
+    font-weight: bold;
+    color: blue;
+    top: 110px;
+    left: 240px;
+}
+
+.integranteview-div {
+    margin-top: 140px;
+}
+
+/* Distâncias */
+
+.distancias-div h2 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: 70px;
+}
+
+.distancias-div {
+    margin-left: 360px;
+}
+
+/* filter uf*/
+.filteruf-div {
+    margin-bottom: 15px;
+    padding: 0;
+    margin-left: 130px;
+}
+
+#filteruf {
+    display: inline-block;
+    width: 160px;
+    margin-left: 10px;
+}
+
+/* filter status*/
+.filterstatus-div {
+    margin-bottom: 15px;
+    padding: 0;
+    margin-left: -170px;
+}
+
+#filterstatus {
+    display: inline-block;
+    width: 180px;
+    margin-left: 5px;
+}
+
+/* filter grupo*/
+.filtergrupo-div {
+    margin-bottom: 15px;
+    padding: 0;
+    margin-left: 20px;
+}
+
+#filtergrupo {
+    display: inline-block;
+    width: 180px;
+    margin-left: 5px;
+}
+
+/* Search Grupo */
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.searchgrupo-div {
+    position: absolute;
+    padding: 0;
+    margin-left: 420px;
+    margin-bottom: 15px;
+    width: 400px;
+}
+
+.searchintegrante-div {
+    padding: 0;
+    margin-left: -70px;
+    margin-bottom: 15px;
+    width: 400px;
+}
+
+.searchcidadeinteresse-div {
+    padding: 0;
+    margin-left: 70px;
+    margin-bottom: 15px;
+    width: 330px;
+}
+
+.bot-search-grupo {
+    position: absolute;
+    color: blue;
+    top: 12px;
+    right: 16px;
+    cursor: pointer;  /* pointer para a lupa */
+}
+
+.bot-search-integrante {
+    position: absolute;
+    color: blue;
+    top: 12px;
+    right: 16px;
+    cursor: pointer;  /* pointer para a lupa */
+}
+
+.bot-search-cidadeinteresse {
+    position: absolute;
+    color: blue;
+    top: 12px;
+    right: 16px;
+    cursor: pointer;  /* pointer para a lupa */
+}
+
+/* Messages */
+
+.messagelist {
+    margin-left: 125px;
+    width: 700px;
+    text-align: center;
+    list-style: none;
+}
+
+/* botão adicionar Grupo */
+#btngruponew {
+    position: absolute;
+    margin-left: 800px;
+    width: 95px;
+    height: 35px;
+    font-size: 16px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+/* botão adicionar Integrante */
+#btnintegrantenew {
+    margin-left: 20px;
+    width: 95px;
+    height: 34px;
+    font-size: 16px;
+    font-weight: bold;
+    vertical-align: middle;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% block title %}Group Manager{% endblock %}
+
+{% block content %}
+<div class="offset-1 col-9 listagrupos-div">
+    <h2>Grupos</h2>
+    <div class="flex-container">
+        <!-- Configuração da ação do filtro -->
+        <div class="col-5 column filteruf-div">
+            <span>Filtrar UF:</span>
+            <select name="filteruf" id="filteruf" class="form-control">
+                <option value="0">Todos</option>
+                {% for ufitem in listaufs %}
+                    {% if filterufatual == ufitem.id %}
+                        <option value="{{ ufitem.id }}" selected>{{ ufitem.nomeuf }}</option>
+                    {% else %}
+                        <option value="{{ ufitem.id }}">{{ ufitem.nomeuf }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <!-- Configuração da ação do botão search -->
+        <div class="col-4 searchgrupo-div">
+            <form method="GET" id="searchgrupo-form">
+                <input class="form-control" type="text" id="searchgrupo" name="searchgrupo"
+                       placeholder="Digite o nome para buscar..."
+                       value="{{ request.GET.searchgrupo }}"> <!-- value aqui apresenta o que o usuário digitou para não apagar depois que ele digitar enter ou clicar na lupinha -->
+                <i class="fas fa-search bot-search-grupo" id="searchgrupo-btn"></i>
+            </form>
+        </div>
+        <!-- Configuração do botão criar -->
+        <a class="fas fa-plus btn btn-primary" id="btngruponew" href="/gruponew">&nbsp Criar</a>
+    </div>
+
+    {% if messages %}
+    {% for message in messages %}
+    <ul class="messagelist">
+        <li {% if message.tags %} class="alert alert-{{ message.tags }} alert-dismissible" {% endif %} > <strong>{{message}}</strong> </li>
+    </ul>
+    {% endfor %}
+    {% endif %}
+    <div class="container lista-grupos">
+        <table class="table">   <!--  table-bordered table-sm  -->
+            <thead>
+            <tr>
+                <th>Nome do Grupo</th>
+                <th>Cidade</th>
+                <th>UF</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for grupo in listagrupos %}
+            <tr>
+                <td><span><a href="/grupo/{{grupo.id}}">{{grupo.nome}}</a></span></td>
+                <td>{{grupo.cidade}}</td>
+                <td>{{grupo.uf}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+</html>

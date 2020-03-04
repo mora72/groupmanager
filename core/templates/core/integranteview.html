@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Integrante{% endblock %}
+
+{% block content %}
+<div class="headerintegranteview">
+    <h2 class="h2integranteview">{{integrante.nome}}</h2>
+    {% if integrante.foto %}
+        <img class="imageintegranteview" src="{{integrante.foto.url}}" width="100"/>
+    {% else %}
+        <img class="imageintegranteview" src="/media/fotos/tbd.png" width="100"/>
+    {% endif %}
+
+</div>
+<div class="offset-2 col-10 integranteview-div">
+    <form method="POST">
+        {% csrf_token %}
+        {% crispy form %}
+    </form>
+    <a id="btnvoltar" href="/integrantes/">
+        <button type="button" class="btn btn-info">Voltar</button>
+    </a>
+    <a id="btndelete" href="/integrante/delete/{{integrante.id}}">
+        <button type="button" class="btn btn-danger">Apagar</button>
+    </a>
+    <a id="btnintegranteedit" href="/integrante/edit/{{integrante.id}}">
+        <button type="button" class="btn btn-primary">Atualizar</button>
+    </a>
+</div>
+{% endblock %}
